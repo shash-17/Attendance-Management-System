@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.status {
+    font-weight: bold;
+}
+
+.present {
+    color: green;
+}
+
+.checked-in {
+    color: blue;
+}
+
+.checked-out {
+    color: orange;
+}
+
+.not-checked {
+    color: red;
+}
+
+.button[type="submit"],.btn-secondary {
+    background-color: #007bff; /* Blue button color */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+.button[type="submit"]:hover,.btn-secondary:hover {
+    background-color: #0069d9; /* Darker blue on hover */
+  }

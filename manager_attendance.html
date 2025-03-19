@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='employee.css') }}">
+</head>
+<body>
+    <form action="{{ url_for('logout') }}" method="post" style="display: inline;">
+        <button class= "logout" type="submit">Logout</button>
+    </form>
+    <div class="employee-container">
+        <div class="calendar">
+            <h3>{{ today.strftime('%B %Y') }}</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sun</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for week in cal %}
+                        <tr>
+                            {% for day in week %}
+                                {% if day == 0 %}
+                                    <td class="empty"></td>
+                                {% else %}
+                                    {% set status = 'white' %}
+                                    {% for att in attendance %}
+                                        {% if att['date'] == '{}-{:02d}-{:02d}'.format(today.year, today.month, day) %}
+                                            {% set status = att['status'] %}
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td class="{{ status }}">
+                                        {{ day }}
+                                        {% for att in attendance %}
+                                            {% if att['date'] == '{}-{:02d}-{:02d}'.format(today.year, today.month, day) %}
+                                                <div class="time">In: {{ att['checkin_time'] }}</div>
+                                                <div class="time">Out: {{ att['checkout_time'] }}</div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </td>
+                                {% endif %}
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="actions">
+            <h3>Attendance</h3>
+            <form method="POST" action="{{ url_for('mcheckin') }}">
+                <button type="submit">Check In</button>
+            </form>
+            <form method="POST" action="{{ url_for('mcheckout') }}">
+                <button type="submit">Check Out</button>
+            </form>
+
+            <a href="{{ url_for('manager') }}" ><button class="button">Back</button></a>
+
+        
+            

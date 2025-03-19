@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance Records</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='attendance.css') }}">
+</head>
+<body>
+    <h1>Attendance Records</h1>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Check-in Time</th>
+            <th>Check-out Time</th>
+            <th>Status</th>
+        </tr>
+        {% for record in attendance_records %}
+        <tr>
+            <td>{{ record[0] }}</td>
+            <td>{{ record[1] | default('Not Checked-in') }}</td>
+            <td>{{ record[2] | default('Not Checked-out') }}</td>
+            <td>
+                {% if record[1] and record[2] %}
+                    Present
+                {% elif record[1] %}
+                    Checked-in
+                {% elif record[2] %}
+                    Checked-out
+                {% else %}
+                    Absent
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

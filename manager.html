@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manager Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='manager.css') }}">
+</head>
+<body>
+    
+        
+    <h1>Manager Page</h1>
+
+    <form action="{{ url_for('manager_attendance') }}" method="get" style="display: inline;">
+        <button class= "button" type="submit">Attendance</button>
+    </form>
+
+    <a href="{{ url_for('change_mpassword') }}"><button class="button">Change Password</button></a>
+
+    <form action="{{ url_for('logout') }}" method="post" style="display: inline;">
+        <button class= "logout" type="submit">Logout</button>
+    </form>
+    <h2>Employees</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Attendance</th>
+        </tr>
+        {% for employee in employees %}
+        <tr>
+            <td>{{ employee[0] }}</td>
+            <td>{{ employee[1] }}</td>
+            <td>
+                <a href="{{ url_for('attendance', employee_id=employee[0]) }}">View Attendance</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Leave Requests</h2>
+    <table>
+        <tr>
+            
+            <th>Employee ID</th>
+            <th>Leave Start</th>
+            <th>Leave End</th>
+            <th>Reason</th>
+            <th>Actions</th>
+            <th>Status</th>
+        </tr>
+        {% for request in leave_requests %}
+        <tr>
+            
+            <td>{{ request[1] }}</td>
+            <td>{{ request[2] }}</td>
+            <td>{{ request[3] }}</td>
+            <td>{{ request[4] }}</td>
+            <td>
+                <form action="{{ url_for('approve_leave', request_id=request[0]) }}" method="post">
+                    <input type="submit" value="Approve">
+                </form>
+                <form action="{{ url_for('deny_leave', request_id=request[0]) }}" method="post">
+                    <input type="submit" value="Deny">
+                </form>
+            </td>
+            <td>{{ request[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+</body>
+</html>

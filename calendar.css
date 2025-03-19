@@ -1,0 +1,24 @@
+/* Calendar Styles */
+#calendar {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.day {
+    width: 14.28%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.present {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.absent {
+    background-color: #f8d7da;
+    color: #721c24;
+}

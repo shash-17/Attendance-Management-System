@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Record</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Add New Record</h2>
+        <form action="{{ url_for('add_record') }}" method="POST" >
+            <div class="form-group">
+                <label for="id">ID:</label><br>
+                <input type="text" id="id" name="id" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="role">Role:</label><br>
+                <input type="text" id="role" name="role" required>
+            </div>
+            <div class="form-group">
+                <label for="userid">Userid:</label><br>
+                <input type="text" id="userid" name="userid" required>
+            </div>
+
+            <div class="form-group">
+                <label for="company">Company:</label><br>
+                <input type="text" id="company" name="company" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label><br>
+                <input type="text" id="password" name="password" required>
+            </div><br>
+            <button class="button" type="submit">Submit</button>
+        </form>
+        
+        <!-- Flash messages display -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <br>
+        <form action="{{ url_for('admin') }}" method="get" style="display: inline;">
+            <button class= "button" type="submit">Back</button>
+        </form>
+    </div>
+</body>
+</html>

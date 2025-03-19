@@ -1,0 +1,137 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(18, 67, 200);
+    margin: 0;
+    padding: 0;
+}
+
+.employee-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.calendar {
+    width: 60%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    left: -10px;
+    position: relative;
+}
+
+.calendar h3 {
+    text-align: center;
+}
+
+.calendar table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendar th,
+.calendar td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.calendar .empty {
+    background-color: #f9f9f9;
+}
+
+.calendar .present {
+    background-color: lightgreen;
+}
+
+.calendar .absent {
+    background-color: #ffcccc;
+}
+
+.calendar .time {
+    font-size: 12px;
+    color: #555;
+}
+
+.actions {
+    width: 35%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.actions h3 {
+    text-align: center;
+}
+
+.actions form {
+    margin-bottom: 20px;
+}
+
+.actions button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.actions button:hover {
+    background-color: #0056b3;
+}
+
+.actions label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.actions input,
+.actions textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.actions ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.actions li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.actions li.pending {
+    background-color: #fff3cd;
+}
+
+.actions li.approved {
+    background-color: #d4edda;
+}
+
+.actions li.rejected {
+    background-color: #f8d7da;
+}
+
+.logout{
+    position: absolute;
+    top: 57px;
+    right:50px;
+    background-color: red;
+    color: white;
+}
+
+.logout:hover {
+    background-color: #a30f0f;
+}
