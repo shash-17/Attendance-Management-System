@@ -1,5 +1,5 @@
 # Attendance-Management-System
-Overview
+# Overview
 The Attendance Management System is a web-based application developed using Flask, HTML, CSS, JavaScript, and SQLite. It is designed to simplify and automate attendance tracking, leave request management, and user role management for organizations such as educational institutions or workplaces. The system offers a secure and efficient way to manage attendance records and ensures smooth operations for both administrators and employees.
 
 # Features
